@@ -1,0 +1,58 @@
+prompt-creator
+------------------------
+
+A /prompt command for OpenCode and FuckCode.
+
+It reads the project, asks up to five clarifying questions, and
+saves a ready task prompt to prompts/<date>-<slug>.md that any
+AI agent can read and execute.
+
+The command itself is prompt.md.
+
+
+Install
+------------------------
+
+OpenCode or FuckCode must be installed and available in PATH
+
+Linux and macOS:
+
+curl -fsSL https://raw.githubusercontent.com/NoNFake/prompt-creator/main/install.sh | bash
+
+
+From a clone:
+
+git clone https://github.com/NoNFake/prompt-creator.git
+cd prompt-creator
+./install.sh
+
+
+The installer detects opencode and fuckcode in PATH and installs
+prompt.md as /prompt for each one it finds
+
+The command is copied to:
+
+~/.config/opencode/commands/prompt.md
+~/.config/fuckcode/commands/prompt.md
+
+If an existing file differs, it is saved as prompt.md.bak.<date>
+before being replaced
+
+Usage
+------------------------
+
+/prompt add CSV export for the report
+
+The agent inspects the code, asks up to five questions, then writes
+the task prompt. To execute it later:
+
+Read prompts/<file>.md and do it
+
+
+Inside this repository
+------------------------
+
+The command is already active for both tools through symlinks:
+
+.fuckcode/commands/prompt.md -> ../../prompt.md
+.opencode/commands/prompt.md -> ../../prompt.md
